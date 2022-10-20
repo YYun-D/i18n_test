@@ -27,7 +27,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          target: main
+          target: sync/YYun-D/i18n_test
           exclude: development # Don't prevent going from development -> main
           change-to: development
           comment: |
