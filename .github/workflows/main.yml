@@ -23,6 +23,7 @@ jobs:
           sync-repository: Azure/azure-sdk
           allow-files-pattern: '^docs/policies/README-EXAMPLE.md|^docs/policies/support.md'
           sync-branch-name: 'main'
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4.2.0
+      - name: Pull Request for New Branch Action
+        uses: jascodes/pr-branch-action@1.0.3
+
 
