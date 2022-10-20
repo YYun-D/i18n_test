@@ -26,4 +26,6 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4.2.0
         with:
-          add-paths: docs/policies/*.md
+          add-paths: |
+            docs/policies/README-EXAMPLE.md
+            docs/policies/support.md
