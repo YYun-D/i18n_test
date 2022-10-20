@@ -23,8 +23,5 @@ jobs:
           sync-repository: Azure/azure-sdk
           allow-files-pattern: '^docs/policies/README-EXAMPLE.md|^docs/policies/support.md'
           sync-branch-name: 'main'
-      - name: Update All Pull Requests
-        uses: juliangruber/update-pull-request-branch-action@v1
-        with:
-          waitForPullRequestUpdated: false
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Automatically Create Pull Requests
+        uses: BaharaJr/create-pr@0.0.1
