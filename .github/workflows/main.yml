@@ -31,9 +31,7 @@ jobs:
           source_folder: 'docs/policies/README-EXAMPLE.md'
           destination_repo: 'YYun-D/i18n_test'
           destination_folder: 'docs'
-          destination_base_branch: 'x'
-          destination_head_branch: 'xx'
+          destination_head_branch: 'update'
           user_email: 'yeoyundong@gmail.com'
           user_name: 'YYun-D'
-          pull_request_reviewers: 'reviewers'
 
