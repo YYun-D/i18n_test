@@ -26,5 +26,4 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4.2.0
         with:
-          branch: sync/YYun-D/i18n_test
 
