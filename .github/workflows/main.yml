@@ -25,5 +25,8 @@ jobs:
           sync-branch-name: 'main'
       - name: Pull Request for New Branch Action
         uses: jascodes/pr-branch-action@1.0.3
+        env:
+          BRANCH_PREFIX: "update/"
+          PULL_REQUEST_BRANCH: "master"
 
 
