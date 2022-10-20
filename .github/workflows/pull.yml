@@ -1,8 +1,6 @@
 name: pull request
 on:
-  push:
-    branches:
-    - "sync/YYun-D/i18n_test"
+  [push]
 jobs:
   pull-request:
     runs-on: ubuntu-latest
