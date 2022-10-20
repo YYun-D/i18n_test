@@ -23,15 +23,9 @@ jobs:
           sync-repository: Azure/azure-sdk
           allow-files-pattern: '^docs/policies/README-EXAMPLE.md|^docs/policies/support.md'
           sync-branch-name: 'main'
-      - name: Create pull request
-        uses: paygoc6/action-pull-request-another-repo@v1.0.1
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      - name: Update Pull Request
+        uses: juliangruber/update-pull-request-branch-action@v1
         with:
-          source_folder: 'docs/policies/README-EXAMPLE.md'
-          destination_repo: 'YYun-D/i18n_test'
-          destination_folder: 'docs'
-          destination_head_branch: 'update'
-          user_email: 'yeoyundong@gmail.com'
-          user_name: 'YYun-D'
+          number: 1
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
