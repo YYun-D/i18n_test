@@ -29,5 +29,17 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH_PREFIX: ""
           PULL_REQUEST_BRANCH: "sync/YYun-D/i18n_test"
-
+      - name: Create pull request
+        uses: paygoc6/action-pull-request-another-repo@v1.0.1
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source_folder: 'docs/policies/README-EXAMPLE.md'
+          destination_repo: 'YYun-D/i18n_test'
+          destination_folder: 'docs'
+          destination_base_branch: 'main'
+          destination_head_branch: 'main'
+          user_email: 'yeoyundong@gmail.com'
+          user_name: 'YYun-D'
+          pull_request_reviewers: 'reviewers'
 
