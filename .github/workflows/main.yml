@@ -1,0 +1,25 @@
+name: test
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: "0 0 * * *"
+  
+  workflow_dispatch:
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout files
+        uses: actions/checkout@v2
+        with:
+          repository: YYun-D/i18n-test
+      - name: Sync files with dst-repsotiory!
+        uses: waroad/sync-files@main
+        with:
+          git-author-email: 'yeoyundong@gmail.com'
+          git-author-name: 'YYun-D'
+          sync-repository: Azure/azure-sdk
+          allow-files-pattern: '^docs/policies/README-EXAMPLE.md|^docs/policies/support.md'
+          sync-branch-name: 'main'
