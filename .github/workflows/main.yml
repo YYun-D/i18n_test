@@ -23,5 +23,3 @@ jobs:
           sync-repository: Azure/azure-sdk
           allow-files-pattern: '^docs/policies/README-EXAMPLE.md|^docs/policies/support.md'
           sync-branch-name: 'main'
-      - name: Automatically Create Pull Requests
-        uses: BaharaJr/create-pr@0.0.1
