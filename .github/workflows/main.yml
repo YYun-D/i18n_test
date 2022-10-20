@@ -14,7 +14,7 @@ jobs:
       - name: Checkout files
         uses: actions/checkout@v2
         with:
-          repository: YYun-D/i18n-test
+          repository: YYun-D/i18n_test
       - name: Sync files with dst-repsotiory!
         uses: denis-tingaikin/sync-files@v1.0.2
         with:
