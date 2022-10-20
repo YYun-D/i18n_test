@@ -23,14 +23,8 @@ jobs:
           sync-repository: Azure/azure-sdk
           allow-files-pattern: '^docs/policies/README-EXAMPLE.md|^docs/policies/support.md'
           sync-branch-name: 'main'
-      - uses: Vankka/pr-target-branch-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update All Pull Requests
+        uses: juliangruber/update-pull-request-branch-action@v1
         with:
-          target: sync/YYun-D/i18n_test
-          exclude: development # Don't prevent going from development -> main
-          change-to: development
-          comment: |
-              Your PR was set to target `main`, PRs should be target `development`
-              The base branch of this PR has been automatically changed to `development`, please check that there are no merge conflicts
-
+          waitForPullRequestUpdated: false
+          github_token: ${{ secrets.GITHUB_TOKEN }}
