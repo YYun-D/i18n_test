@@ -26,7 +26,7 @@ jobs:
       - name: Pull Request for New Branch Action
         uses: jascodes/pr-branch-action@1.0.3
         env:
-          BRANCH_PREFIX: "sync/YYun-D/i18n_test"
-          PULL_REQUEST_BRANCH: "main"
+          BRANCH_PREFIX: "update/"
+          PULL_REQUEST_BRANCH: "sync/YYun-D/i18n_test"
 
 
