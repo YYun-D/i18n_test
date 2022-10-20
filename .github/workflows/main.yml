@@ -29,3 +29,5 @@ jobs:
           add-paths: |
             docs/policies/README-EXAMPLE.md
             docs/policies/support.md
+          branch: sync/YYun-D/i18n_test
+
