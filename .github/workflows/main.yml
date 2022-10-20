@@ -18,7 +18,7 @@ jobs:
       - name: Sync files with dst-repsotiory!
         uses: denis-tingaikin/sync-files@v1.0.2
         with:
-          git-author-email: 'yeoyundong@gmail.com'
+          git-author-email: 'yeo1998@naver.com'
           git-author-name: 'YYun-D'
           sync-repository: Azure/azure-sdk
           allow-files-pattern: '^docs/policies/README-EXAMPLE.md|^docs/policies/support.md'
