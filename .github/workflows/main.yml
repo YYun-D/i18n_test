@@ -34,7 +34,7 @@ jobs:
           pip install --upgrade pip
           pip install mdpo
           
-      - name: pofile change to mdfile
+      - name: mdfile change to pofile
         run: |
           md2po docs/policies/README-EXAMPLE.md -q -s -p docs/policies/ko/README-EXAMPLEko.po
           md2po docs/policies/support.md -q -s -p docs/policies/ko/supportko.po
