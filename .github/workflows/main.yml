@@ -36,8 +36,8 @@ jobs:
           
       - name: mdfile change to pofile
         run: |
-          md2po docs/policies/README-EXAMPLE.md -q -s -p docs/policies/ko/README-EXAMPLEko.po
-          md2po docs/policies/support.md -q -s -p docs/policies/ko/supportko.po
+          md2po ./docs/policies/README-EXAMPLE.md -q -s -p ./docs/policies/ko/README-EXAMPLEko.po
+          md2po ./docs/policies/support.md -q -s -p ./docs/policies/ko/supportko.po
           
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4.2.0
