@@ -36,7 +36,7 @@ jobs:
           
       - name: mdfile change to pofile
         run: |
-          mkdir docs/policies/ko
+          mkdir po
           md2po docs/policies/README-EXAMPLE.md -q -s -p po/ko.po
           md2po docs/policies/support.md -q -s -p po/ko.po
           
