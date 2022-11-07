@@ -38,7 +38,6 @@ jobs:
         run: |
           mkdir po
           md2po docs/policies/README-EXAMPLE.md -q -s -p po/ko.po
-          md2po docs/policies/support.md -q -s -p po/ko.po
           
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4.2.0
