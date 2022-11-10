@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-10 03:09+0000\n"
-"PO-Revision-Date: 2022-11-10 03:29+0000\n"
+"PO-Revision-Date: 2022-11-11 11:55+0000\n"
 "Last-Translator: Weblate Admin <weblate.admin@example.com>\n"
 "Language-Team: Korean <http://40.76.85.234/projects/test/readme-example/ko/>"
 "\n"
@@ -33,7 +33,7 @@ msgstr "sql:"
 
 #: docs/policies/README-EXAMPLE.md:block 4 (unordered list)
 msgid "Create Cosmos DB databases and modify their settings"
-msgstr ""
+msgstr "세팅"
 
 #: docs/policies/README-EXAMPLE.md:block 4 (unordered list)
 msgid "Create and modify containers to store collections of JSON documents"
