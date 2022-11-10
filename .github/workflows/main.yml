@@ -36,8 +36,8 @@ jobs:
           
       - name: mdfile change to pofile
         run: |
-          mkdir po
-          md2po docs/policies/README-EXAMPLE.md -q -s -p po/ko.po
+          mkdir readmeex
+          md2po docs/policies/README-EXAMPLE.md -q -s -p readmeex/ko.po
           
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4.2.0
@@ -45,6 +45,6 @@ jobs:
           add-paths: |
             docs/policies/README-EXAMPLE.md
             docs/policies/support.md
-            po/ko.po
+            readmeex/ko.po
           branch: sync/YYun-D/i18n_test
 
