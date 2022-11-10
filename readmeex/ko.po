@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-10 03:09+0000\n"
-"PO-Revision-Date: 2022-11-10 03:09+0000\n"
-"Last-Translator: Weblate Admin <weblate.admin@example.com>\n"
+"PO-Revision-Date: 2022-11-10 03:27+0000\n"
+"Last-Translator: 여윤동 <yeo1998@naver.com>\n"
 "Language-Team: Korean <http://40.76.85.234/projects/test/readme-example/ko/>"
 "\n"
 "Language: ko\n"
@@ -15,7 +15,6 @@ msgstr ""
 "X-Generator: Weblate 4.14.2\n"
 
 #
-
 #: docs/policies/README-EXAMPLE.md:block 1 (header)
 msgid "Azure Cosmos DB client library for Python"
 msgstr "파이썬"
@@ -24,7 +23,7 @@ msgstr "파이썬"
 msgid ""
 "Azure Cosmos DB is a globally distributed, multi-model database service that"
 " supports document, key-value, wide-column, and graph databases."
-msgstr ""
+msgstr "데이터베이스."
 
 #: docs/policies/README-EXAMPLE.md:block 3 (paragraph)
 msgid ""
