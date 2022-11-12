@@ -49,4 +49,6 @@ jobs:
           branch: sync/YYun-D/i18n_test
 
       - name: Run python script
-        run : python python_scripts/weblate_push.py
+        run : |
+          pip install requests
+          python python_scripts/weblate_push.py
