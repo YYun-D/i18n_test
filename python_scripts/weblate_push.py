@@ -11,7 +11,7 @@ response = requests.request("GET", url, headers=headers, data=payload)
 result = json.loads(response.text)
 print(result["translated_percent"])
 
-if result["translated_percent"]>=75:
+if result["translated_percent"]>=3:
     
     url = "http://40.76.85.234/api/translations/test/readme-example/ko/repository/"
 
