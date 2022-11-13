@@ -1,7 +1,7 @@
 import requests
 import json
 
-url = "http://40.76.85.234/api/translations/test/readme-example/ko/"
+url = "http://azuresdkweblate.eastus.cloudapp.azure.com/api/translations/test/readme-example/ko/"
 
 payload={}
 headers = {}
@@ -13,7 +13,7 @@ print(result["translated_percent"])
 
 if result["translated_percent"]>=3:
     
-    url = "http://40.76.85.234/api/translations/test/readme-example/ko/repository/"
+    url = "http://azuresdkweblate.eastus.cloudapp.azure.com/api/translations/test/readme-example/ko/repository/"
 
     payload = json.dumps({
     "operation": "push"
