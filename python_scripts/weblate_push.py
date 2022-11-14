@@ -15,7 +15,10 @@ if result["translated_percent"] >= 3:
     url = "http://azuresdkweblate.eastus.cloudapp.azure.com/api/translations/test/readme-example/ko/repository/"
 
     payload = json.dumps({ "operation": "push" })
-    headers = { 'Authorization': BEARER_TOKEN, 'Content-Type': 'application/json' }
+    headers = {
+        'Authorization': BEARER_TOKEN, 
+        'Content-Type': 'application/json'
+    }
 
     response = requests.request("POST", url, headers=headers, data=payload)
     print(response.text)
