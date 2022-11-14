@@ -49,6 +49,8 @@ jobs:
           branch: sync/YYun-D/i18n_test
 
       - name: Run python script
+        env :
+          BEARER_TOKEN : ${{ secrets.BEARER_TOKEN }}
         run : |
           pip install requests
           python python_scripts/weblate_push.py
