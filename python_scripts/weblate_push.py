@@ -5,10 +5,7 @@ import os
 BEARER_TOKEN = os.environ.get("BEARER_TOKEN")
 url = "http://azuresdkweblate.eastus.cloudapp.azure.com/api/translations/test/readme-example/ko/"
 
-payload={}
-headers = {}
-
-response = requests.request("GET", url, headers=headers, data=payload)
+response = requests.request("GET", url, headers={}, data={})
 
 result = json.loads(response.text)
 print(result["translated_percent"])
