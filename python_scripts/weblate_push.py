@@ -6,13 +6,10 @@ import sys
 
 BEARER_TOKEN = os.environ.get("BEARER_TOKEN")
 WEBLATE_URL = "http://azuresdkweblate.eastus.cloudapp.azure.com/api/%s"
-PROJECT = sys.argv[1]
-COMPONENT = sys.argv[2]
-LANGUAGE = sys.argv[3]
 
 
-def read_translated_percent():
-    url = WEBLATE_URL % "translations/%s/%s/%s/" %(PROJECT, COMPONENT, LANGUAGE)
+def read_translated_percent(project, component, language):
+    url = WEBLATE_URL % "translations/%s/%s/%s/" %(project, component, language)
     
     response = requests.request("GET", url)
 
@@ -20,8 +17,8 @@ def read_translated_percent():
     return result["translated_percent"]
 
 
-def push_repository_from_weblate():
-    url =  WEBLATE_URL % "translations/%s/%s/%s/repository/" %(PROJECT, COMPONENT, LANGUAGE)
+def push_repository_from_weblate(project, component, language):
+    url =  WEBLATE_URL % "translations/%s/%s/%s/repository/" %(project, component, language)
 
     payload = json.dumps({ "operation": "push" })
     headers = {
@@ -33,7 +30,10 @@ def push_repository_from_weblate():
     return response.text
 
 
+def main(project, component, language):
+    if  read_translated_percent(project, component, language) >= 75:
+        push_repository_from_weblate(project, component, language)
+
+
 if __name__ == '__main__':
-    if  read_translated_percent() >= 3:
-        push_repository_from_weblate()
-    
+    main(sys.argv[1], sys.argv[2], sys.argv[3])
