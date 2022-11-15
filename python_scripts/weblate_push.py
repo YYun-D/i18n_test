@@ -31,8 +31,9 @@ def push_repository_from_weblate(project, component, language):
 
 
 def main(project, component, language):
-    if  read_translated_percent(project, component, language) >= 75:
-        push_repository_from_weblate(project, component, language)
+    if  read_translated_percent(project, component, language) >= 3:
+        print(push_repository_from_weblate(project, component, language))
+        
 
 
 if __name__ == '__main__':
