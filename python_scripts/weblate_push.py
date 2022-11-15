@@ -1,13 +1,14 @@
 import requests
 import json
 import os
+import sys
 
 
 BEARER_TOKEN = os.environ.get("BEARER_TOKEN")
 WEBLATE_URL = "http://azuresdkweblate.eastus.cloudapp.azure.com/api/%s"
-PROJECT = "test"
-COMPONENT = "readme-example"
-LANGUAGE = "ko"
+PROJECT = sys.argv[1]
+COMPONENT = sys.argv[2]
+LANGUAGE = sys.argv[3]
 
 
 def read_translated_percent():
