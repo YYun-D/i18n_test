@@ -27,5 +27,5 @@ def push_repository_from_weblate():
 
 if __name__ == '__main__':
     if  read_translated_percent() >= 3:
-        push_repository_from_weblate()
+        print(push_repository_from_weblate())
     
