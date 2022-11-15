@@ -3,16 +3,18 @@ import json
 import os
 
 BEARER_TOKEN = os.environ.get("BEARER_TOKEN")
-url = "http://azuresdkweblate.eastus.cloudapp.azure.com/api/translations/test/readme-example/ko/"
+WEBLATE_URL = "http://azuresdkweblate.eastus.cloudapp.azure.com/api/%s"
 
-response = requests.request("GET", url)
+def read_translated_percent():
+    url = WEBLATE_URL % "translations/test/readme-example/ko/"
 
-result = json.loads(response.text)
-print(result["translated_percent"])
+    response = requests.request("GET", url)
 
-if result["translated_percent"] >= 3:
-    
-    url = "http://azuresdkweblate.eastus.cloudapp.azure.com/api/translations/test/readme-example/ko/repository/"
+    result = json.loads(response.text)
+    return result["translated_percent"]
+
+def push_repository_from_weblate():
+    url =  WEBLATE_URL % "translations/test/readme-example/ko/repository/"
 
     payload = json.dumps({ "operation": "push" })
     headers = {
@@ -21,4 +23,9 @@ if result["translated_percent"] >= 3:
     }
 
     response = requests.request("POST", url, headers=headers, data=payload)
-    print(response.text)
+    return response.text
+
+if __name__ == '__main__':
+    if  read_translated_percent() >= 3:
+        push_repository_from_weblate()
+    
