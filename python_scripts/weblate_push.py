@@ -11,8 +11,8 @@ LANGUAGE = "ko"
 
 
 def read_translated_percent():
-    url = WEBLATE_URL % "translations/test/readme-example/ko/"
-
+    url = WEBLATE_URL % "translations/%s/%s/%s/" %(PROJECT, COMPONENT, LANGUAGE)
+    
     response = requests.request("GET", url)
 
     result = json.loads(response.text)
@@ -20,7 +20,7 @@ def read_translated_percent():
 
 
 def push_repository_from_weblate():
-    url =  WEBLATE_URL % "translations/test/readme-example/ko/repository/"
+    url =  WEBLATE_URL % "translations/%s/%s/%s/repository/" %(PROJECT, COMPONENT, LANGUAGE)
 
     payload = json.dumps({ "operation": "push" })
     headers = {
