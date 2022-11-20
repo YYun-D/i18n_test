@@ -28,6 +28,6 @@ jobs:
           
       - name: record log
         run : |
-          git log --name-only > commits.txt
+          git log --oneline -3 > commits.txt
           cat commits.txt
       
