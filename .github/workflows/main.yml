@@ -1,4 +1,4 @@
-name: test
+name: weblate_push
 on:
   push:
     branches: [ main ]
@@ -7,8 +7,8 @@ on:
   
   workflow_dispatch:
 jobs:
-  test:
-    name: test
+  build:
+    name: weblate_push
     runs-on: ubuntu-latest
     steps:
       - name: Checkout files
@@ -16,41 +16,17 @@ jobs:
         with:
           repository: YYun-D/i18n_test
           
-      - name: Sync files with dst-repsotiory!
-        uses: waroad/sync-files@main
-        with:
-          git-author-email: 'yeoyundong@gmail.com'
-          git-author-name: 'YYun-D'
-          sync-repository: Azure/azure-sdk
-          allow-files-pattern: '^docs/policies/README-EXAMPLE.md|^docs/policies/support.md'
-          sync-branch-name: 'main'
-          
-      - uses: actions/setup-python@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
           python-version: '3.10'
           
       - name: install python module
-        run: |
-          pip install --upgrade pip
-          pip install mdpo
-          
-      - name: mdfile change to pofile
-        run: |
-          mkdir ko
-          md2po docs/policies/README-EXAMPLE.md -q -s -p ko/README-EXAMPLE.po
-          
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4.2.0
-        with:
-          add-paths: |
-            docs/policies/README-EXAMPLE.md
-            docs/policies/support.md
-            ko/README-EXAMPLE.po
-          branch: sync/YYun-D/i18n_test
+        run:
+          pip install requests
 
       - name: Run python script
         env :
           BEARER_TOKEN : ${{ secrets.BEARER_TOKEN }}
-        run : |
-          pip install requests
+        run :
           python python_scripts/weblate_push.py test readme-example ko
