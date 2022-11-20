@@ -17,17 +17,8 @@ jobs:
         with:
           repository: devrel-kr/I18N-For-Beginners
           
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-          
-      - name: install python module
-        run:
-          pip install requests
-          
       - name: record log
         run : |
-          git log --oneline -3 > commits.txt
+          git log --author-"YYun-D" > commits.txt
           cat commits.txt
       
