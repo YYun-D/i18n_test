@@ -1,4 +1,4 @@
-name: Push_from_weblate
+name: push_from_weblate
 on:
   schedule:
     - cron: "0 0 * * *"
@@ -6,13 +6,13 @@ on:
   workflow_dispatch:
 jobs:
   build:
-    name: Push_from_weblate
+    name: push_from_weblate
     runs-on: ubuntu-latest
     steps:
       - name: Checkout files
         uses: actions/checkout@v2
         with:
-          repository: YYun-D/i18n_test
+          repository: devrel-kr/I18N-For-Beginners
           
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -27,4 +27,4 @@ jobs:
         env :
           BEARER_TOKEN : ${{ secrets.BEARER_TOKEN }}
         run :
-          python python_scripts/weblate_push.py test readme-example ko
+          python python_scripts/push_from_weblate.py test readme-example ko
