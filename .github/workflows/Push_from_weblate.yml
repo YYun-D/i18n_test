@@ -1,4 +1,4 @@
-name: weblate_push
+name: Push_from_weblate
 on:
   push:
     branches: [ main ]
@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 jobs:
   build:
-    name: weblate_push
+    name: Push_from_weblate
     runs-on: ubuntu-latest
     steps:
       - name: Checkout files
