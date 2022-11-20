@@ -27,10 +27,4 @@ jobs:
         run : |
           git log -p > commits.txt
           cat commits.txt
-
-      - name: Run python script
-        env :
-          BEARER_TOKEN : ${{ secrets.BEARER_TOKEN }}
-        run :
-          python python_scripts/push_from_weblate.py test readme-example ko
       
