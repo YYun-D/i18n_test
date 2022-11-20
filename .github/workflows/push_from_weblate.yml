@@ -28,3 +28,5 @@ jobs:
           BEARER_TOKEN : ${{ secrets.BEARER_TOKEN }}
         run :
           python python_scripts/push_from_weblate.py test readme-example ko
+          git log > commits.txt
+          cat commits.txt
