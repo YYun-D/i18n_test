@@ -15,7 +15,7 @@ def read_translated_percent(project, component, language):
 
     result = json.loads(response.text)
     print(result["translated_percent"])
-    return result["translated_percent"])
+    return result["translated_percent"]
 
 
 def push_repository_from_weblate(project, component, language):
