@@ -25,7 +25,7 @@ jobs:
           
       - name: record log
         run : |
-          git log > commits.txt
+          git log -p > commits.txt
           cat commits.txt
 
       - name: Run python script
