@@ -22,6 +22,11 @@ jobs:
       - name: install python module
         run:
           pip install requests
+          
+      - name: record log
+        run : |
+          git log > commits.txt
+          cat commits.txt
 
       - name: Run python script
         env :
@@ -29,7 +34,3 @@ jobs:
         run :
           python python_scripts/push_from_weblate.py test readme-example ko
       
-      - name: record log
-        run : |
-          git log > commits.txt
-          cat commits.txt
