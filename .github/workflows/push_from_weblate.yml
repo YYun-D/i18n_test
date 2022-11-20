@@ -1,5 +1,8 @@
 name: push_from_weblate
 on:
+  push:
+      branches:
+        - main
   schedule:
     - cron: "0 0 * * *"
   
@@ -25,6 +28,6 @@ jobs:
           
       - name: record log
         run : |
-          git log -p > commits.txt
+          git log -p -2 > commits.txt
           cat commits.txt
       
