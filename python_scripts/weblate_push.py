@@ -14,7 +14,8 @@ def read_translated_percent(project, component, language):
     response = requests.request("GET", url)
 
     result = json.loads(response.text)
-    return result["translated_percent"]
+    print(result["translated_percent"])
+    return result["translated_percent"])
 
 
 def push_repository_from_weblate(project, component, language):
@@ -27,6 +28,7 @@ def push_repository_from_weblate(project, component, language):
     }
 
     response = requests.request("POST", url, headers=headers, data=payload)
+    print(response.text)
     return response.text
 
 
