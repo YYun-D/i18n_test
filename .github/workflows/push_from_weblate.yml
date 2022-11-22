@@ -19,6 +19,6 @@ jobs:
           
       - name: record log
         run : |
-          git log --index.html > commits.txt
+          git log -p > commits.txt
           cat commits.txt
       
