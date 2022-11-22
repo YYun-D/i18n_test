@@ -19,6 +19,6 @@ jobs:
           
       - name: record log
         run : |
-          git log --author="YYun-D" > commits.txt
+          git git log --index.html > commits.txt
           cat commits.txt
       
