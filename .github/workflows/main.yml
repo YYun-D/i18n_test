@@ -1,5 +1,7 @@
 name: remote pull request
 on:
+  push:
+    main
   workflow_dispatch:
 jobs:
   test:
