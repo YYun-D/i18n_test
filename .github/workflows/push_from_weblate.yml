@@ -1,8 +1,5 @@
 name: push_from_weblate
 on:
-  push:
-      branches:
-        - main
   schedule:
     - cron: "0 0 * * *"
   
