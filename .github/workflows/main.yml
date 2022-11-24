@@ -14,8 +14,7 @@ jobs:
     
     - name: move files
       run : |
-        mkdir docs/po
-        mkdir docs/po/policies
+        mkdir -p docs/po/policies
         mv docs/policies/README-EXAMPLE.md docs/po/policies/README-EXAMPLE.md
         mv docs/policies/support.md docs/po/policies/support.md
 
