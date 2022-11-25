@@ -1,30 +1,41 @@
-name: Pull Request
-
+name: remote pull request
 on:
-  schedule:
-    - cron: "0 0 * * *"
-  
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - mdpo/ko/**
+      
 jobs:
-  pull-request:
+  test:
+    name: test
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    
-    - name: move files
-      run : |
-        mkdir -p docs/po/policies
-        mv docs/policies/README-EXAMPLE.md docs/po/policies/README-EXAMPLE.md
-        mv docs/policies/support.md docs/po/policies/support.md
-
-    - name: Create pull request
-      uses: paygoc6/action-pull-request-another-repo@v1.0.1
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.PAS_TOKEN }}
-      with:
-        source_folder: './docs'
-        destination_repo: 'YYun-D/blog'
-        destination_head_branch: 'test'
-        user_email: 'yeo1998@naver.com'
-        user_name: 'YYun-D'
+      - name: Checkout files
+        uses: actions/checkout@v2
+      
+      - name: JSON to variables
+        uses: rgarcia-phi/json-to-variables@v1.1.0
+        with:
+          filename: 'mdpo/settings_modified.json'
+          prefix: settings
+          masked: false
+      
+      - name: move files
+        run : |
+          mkdir -p docs/po
+          for i in ${{ env.settings_path_mkdir }}; do mkdir -p docs/po/"$i"; done
+          for i in ${{ env.settings_path_sum_mdpo }}; do v=`echo $i | sed 's/.md//g'` ; mv mdpo/ko/${v}.po docs/po/${v}.po ; done
+          
+      - name: Pull Request another repository
+        uses: car-on-sale/action-pull-request-another-repo@v1.3.0
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.PAS_TOKEN }}
+        with:
+          source_folder: './docs/po'
+          destination_repo: 'YYun-D/blog'
+          destination_head_branch: 'test'
+          user_email: ${{ secrets.USER_EMAIL_1 }}
+          user_name: ${{ secrets.USER_NAME_1 }}
+          pr_title: 'feat: Update PO files'
